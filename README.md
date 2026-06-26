@@ -1,18 +1,7 @@
-# Arham K — Portfolio Website
+# Arham K — SDE-first portfolio
 
-A static GitHub Pages portfolio for internship and research applications.
+Static GitHub Pages portfolio focused on software development, algorithms, ML/RL systems, and quantum-information tooling.
 
-## Files
+## Deploy
 
-- `index.html` — website content
-- `styles.css` — classy visual theme
-- `script.js` — mobile menu behavior
-- `assets/` — place CV, screenshots, reports, and other files here
-
-## Notes
-
-Before sharing publicly, replace:
-
-- `your.email@example.com`
-- `YOUR-LINKEDIN`
-- `assets/Arham_K_CV.pdf` with the actual CV file path if you upload one
+Upload these files directly to the root of `arham-khd.github.io` and commit changes.

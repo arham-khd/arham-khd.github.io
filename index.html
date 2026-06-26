@@ -1,17 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Arham K — IIT Delhi student working across quantum information, quantum error correction, machine learning, robust inference, and software development." />
-  <title>Arham K | Quantum Information, QEC & Software Development</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Arham K — Software Engineering Portfolio</title>
+  <meta name="description" content="SDE-focused portfolio: software development, algorithms, ML/RL systems, and quantum-information tooling." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="site-header">
-    <nav class="nav container" aria-label="Primary navigation">
+    <nav class="nav shell" aria-label="Primary navigation">
       <a class="brand" href="#top">Arham K</a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
       <div class="nav-links">
         <a href="#work">Work</a>
         <a href="#achievements">Achievements</a>
@@ -22,213 +24,173 @@
   </header>
 
   <main id="top">
-    <section class="hero container">
+    <section class="hero shell">
       <div class="hero-copy">
-        <p class="eyebrow">IIT Delhi • Quantum Information • QEC • Software Development • ML/RL</p>
-        <h1>Building research-grade tools at the intersection of quantum error correction, machine learning, and robust inference.</h1>
+        <p class="eyebrow">IIT Delhi • Software Development • Algorithms • ML/RL • Quantum Computing</p>
+        <h1>Building software systems and ML tools for technically demanding problems.</h1>
         <p class="lead">
-          I work on technically rigorous quantum-information and applied-ML projects, with a focus on ML-assisted quantum error correction, decoder routing, robust state estimation under noise mismatch, and software systems for reproducible computational research.
+          I build clean, reproducible software in Python and C++17, with strong emphasis on algorithms,
+          experiment pipelines, debugging discipline, and data-driven evaluation.
         </p>
-        <p class="sublead">
-          My work combines quantum simulation, statistical evaluation, machine-learning pipelines, and engineering discipline: modular code, controlled experiments, validation across seeds, and clean artifacts for research and internship review.
+        <p class="body-copy">
+          My current technical work applies this software-engineering base to machine-learning systems,
+          reinforcement-learning controllers, and quantum-information tooling, especially ML-assisted
+          quantum error correction and decoder-routing infrastructure.
         </p>
         <div class="hero-actions">
-          <a class="button primary" href="#work">View selected work</a>
-          <a class="button secondary" href="#contact">Contact</a>
+          <a class="button primary" href="#work">View projects</a>
+          <a class="button secondary" href="https://github.com/arham-khd" target="_blank" rel="noreferrer">GitHub</a>
         </div>
       </div>
 
-      <aside class="profile-panel" aria-label="Profile summary">
-        <p class="panel-label">Current focus</p>
-        <h2>Quantum software, QEC diagnostics, and ML-driven inference.</h2>
-        <div class="panel-line"></div>
-        <dl class="profile-facts">
-          <div>
-            <dt>Institution</dt>
-            <dd>IIT Delhi</dd>
-          </div>
-          <div>
-            <dt>Academic direction</dt>
-            <dd>Quantum information, QEC, ML/RL</dd>
-          </div>
-          <div>
-            <dt>Engineering direction</dt>
-            <dd>Python, C++17, reproducible research tooling</dd>
-          </div>
-        </dl>
+      <aside class="hero-card" aria-label="Current focus">
+        <p class="small-label">Current focus</p>
+        <h2>Software engineering and ML systems for quantum-information tooling.</h2>
+        <div class="focus-tags" aria-label="Focus tags">
+          <span>Python</span>
+          <span>C++17</span>
+          <span>DSA</span>
+          <span>SQL</span>
+          <span>Git/GitHub</span>
+          <span>ML/RL</span>
+          <span>Reproducible pipelines</span>
+        </div>
       </aside>
     </section>
 
-    <section class="section container" id="work">
-      <div class="section-heading">
-        <p class="eyebrow">Selected technical work</p>
+    <section id="work" class="shell section section-divider">
+      <div class="section-heading compact">
+        <p class="eyebrow">Selected work</p>
         <h2>Projects</h2>
-        <p>
-          A focused selection of research-code and engineering projects across quantum error correction, decoder routing, quantum-state inference, and applied machine learning.
-        </p>
       </div>
 
-      <div class="project-list">
-        <article class="project-card featured">
-          <div class="project-kicker">Quantum Error Correction • Meta-Decoding • ML Routing</div>
-          <div class="project-body">
-            <h3>Latency-Constrained Meta-Decoding for Quantum Error Correction</h3>
-            <p>
-              Built a portfolio-based decoder-routing benchmark to study when different decoders succeed on different syndrome regimes, and whether a learned/conservative router can exploit decoder complementarity without introducing harmful switches.
-            </p>
-            <ul>
-              <li>Implemented a six-decoder portfolio: heuristic, MWPM-like, Union-Find proxy, empirical MLD, MLP, and CNN decoders.</li>
-              <li>Designed router diagnostics around oracle accuracy, specialist behavior, switching risk, bootstrap confidence intervals, and random-switch controls.</li>
-              <li>Observed positive net rescue gains over the best fixed decoder on a harder structured benchmark, with conservative switching and statistical validation.</li>
-            </ul>
+      <div class="project-grid two-col">
+        <article class="project-card">
+          <div class="project-meta">Software systems • ML routing • Evaluation infrastructure</div>
+          <h3>Meta-Decoding QEC: Decoder Routing Benchmark</h3>
+          <p>
+            Implemented a software benchmark for routing across a portfolio of decoders under accuracy,
+            latency, and switching-risk constraints. The project is framed as a software/ML systems problem
+            applied to quantum error correction.
+          </p>
+          <ul>
+            <li>Built a Python experiment pipeline with six decoder implementations, controlled seeds, logs, evaluation tables, and reproducible plots.</li>
+            <li>Designed diagnostics for oracle upper bounds, switching risk, specialist behavior, bootstrap confidence intervals, random-switch baselines, and ablations.</li>
+            <li>Validated conservative routing strategies that recover cases missed by the best fixed decoder while avoiding uncontrolled harmful switches.</li>
+          </ul>
+          <div class="tag-row" aria-label="Project tags">
+            <span>Python</span>
+            <span>ML routing</span>
+            <span>Evaluation pipeline</span>
+            <span>Bootstrap validation</span>
           </div>
-          <div class="project-tags"><span>QEC</span><span>Decoder routing</span><span>Python</span><span>Bootstrap validation</span></div>
+          <div class="project-links">
+            <a href="https://github.com/arham-khd/meta-decoding-qec" target="_blank" rel="noreferrer">github.com/arham-khd/meta-decoding-qec</a>
+          </div>
         </article>
 
         <article class="project-card">
-          <div class="project-kicker">Quantum Tomography • Robust Inference • Noise Mismatch</div>
-          <div class="project-body">
-            <h3>Quantum State Estimation under Model Mismatch</h3>
-            <p>
-              Developed simulation and reconstruction tools for studying quantum-state estimation when the assumed noise model is wrong, drifting, or structurally mismatched with the true channel.
-            </p>
-            <ul>
-              <li>Compared MLE-style reconstruction and learned estimators under amplitude/phase damping versus assumed depolarizing noise.</li>
-              <li>Tracked fidelity, negativity, entanglement failure, and reconstruction gaps across controlled noise grids.</li>
-              <li>Framed the problem as robust inference under unreliable likelihood assumptions, rather than only standard tomography.</li>
-            </ul>
+          <div class="project-meta">Ongoing • ML/RL engineering • Research software</div>
+          <h3>Ongoing ML/RL Tooling for Quantum Error Correction</h3>
+          <p>
+            Developing a cleaner software stack for ML-assisted QEC experiments: controller training,
+            decoder diagnostics, noise-regime stress tests, ablations, and reproducible artifact generation.
+          </p>
+          <ul>
+            <li>Designing modular components for dataset generation, model/controller evaluation, metric reporting, and experiment replay.</li>
+            <li>Combining algorithmic baselines with learned policies, structured diagnostics, and robustness checks across changing noise regimes.</li>
+            <li>Organizing prototypes into reviewable repositories with clear scripts, saved outputs, and engineering-oriented documentation.</li>
+          </ul>
+          <div class="tag-row" aria-label="Project tags">
+            <span>ML/RL</span>
+            <span>Python</span>
+            <span>Research tooling</span>
+            <span>QEC diagnostics</span>
           </div>
-          <div class="project-tags"><span>Qiskit/Aer</span><span>MLE</span><span>Robust inference</span><span>Numerical experiments</span></div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-kicker">Reinforcement Learning • Adaptive Control • Decoder Selection</div>
-          <div class="project-body">
-            <h3>Adaptive RL Controllers for Noisy Decoder Selection</h3>
-            <p>
-              Explored ML/RL controllers for compute-aware decoder selection under non-stationary noise, with emphasis on the accuracy-compute frontier rather than unconditional use of the strongest decoder.
-            </p>
-            <ul>
-              <li>Implemented MLP selectors, budget-aware controllers, actor-critic variants, and history-aware routing strategies.</li>
-              <li>Evaluated controller behavior under drifting, bursty, and structured noise regimes.</li>
-              <li>Used repeated seeds and streaming-style experiments to inspect stability, collapse modes, and compute allocation.</li>
-            </ul>
-          </div>
-          <div class="project-tags"><span>RL</span><span>Non-stationary noise</span><span>Controller design</span><span>Experiment logging</span></div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-kicker">Software Development • Research Infrastructure</div>
-          <div class="project-body">
-            <h3>Research-Grade Experiment Pipelines</h3>
-            <p>
-              Built computational workflows for reproducible simulations, model evaluation, seed sweeps, result logging, plots, and ablation studies across quantum-information and ML experiments.
-            </p>
-            <ul>
-              <li>Structured Python/Colab pipelines with reusable sections for data generation, model evaluation, diagnostics, and artifact saving.</li>
-              <li>Integrated statistical checks such as bootstrap intervals, ablation tables, and controlled baselines.</li>
-              <li>Maintained an engineering style aimed at readable, reviewable, and extensible research code.</li>
-            </ul>
-          </div>
-          <div class="project-tags"><span>Python</span><span>C++17</span><span>Git/GitHub</span><span>Reproducibility</span></div>
+          <div class="project-links muted-link">Repository in progress</div>
         </article>
       </div>
     </section>
 
-    <section class="section muted-section" id="achievements">
-      <div class="container split">
-        <div class="section-heading compact">
-          <p class="eyebrow">Selected achievements</p>
-          <h2>Academic and competitive profile</h2>
-        </div>
-        <div class="achievement-grid">
-          <article class="achievement-card">
-            <span class="number">01</span>
-            <h3>JEE Main AIR 290</h3>
-            <p>National-level competitive examination performance.</p>
-          </article>
-          <article class="achievement-card">
-            <span class="number">02</span>
-            <h3>JEE Advanced AIR 2358</h3>
-            <p>Qualified into IIT Delhi through one of India’s most selective engineering examinations.</p>
-          </article>
-          <article class="achievement-card">
-            <span class="number">03</span>
-            <h3>Class XII — 97.4%</h3>
-            <p>Strong academic performance in senior secondary school.</p>
-          </article>
-          <article class="achievement-card">
-            <span class="number">04</span>
-            <h3>Class X — 98.2%</h3>
-            <p>Consistent academic performance across school-level board examinations.</p>
-          </article>
-          <article class="achievement-card">
-            <span class="number">05</span>
-            <h3>Qubit by Qubit / IBM — 100%</h3>
-            <p>Aced the Qubit by Qubit quantum-computing program with a full-grade outcome.</p>
-          </article>
-          <article class="achievement-card">
-            <span class="number">06</span>
-            <h3>Incoming QEC Intern — Oxford, Dec 2026</h3>
-            <p>Upcoming quantum error correction internship focused on advanced work in the field.</p>
-          </article>
-        </div>
+    <section id="achievements" class="shell section section-divider">
+      <div class="section-heading compact">
+        <p class="eyebrow">Highlights</p>
+        <h2>Achievements</h2>
+      </div>
+      <div class="achievement-grid two-achievements">
+        <article>
+          <span>01</span>
+          <h3>JEE Main AIR 290</h3>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>JEE Advanced AIR 2358</h3>
+        </article>
       </div>
     </section>
 
-    <section class="section container" id="skills">
+    <section id="skills" class="shell section section-divider">
       <div class="section-heading">
         <p class="eyebrow">Technical profile</p>
         <h2>Skills</h2>
         <p>
-          A software-and-research toolkit built around quantum information, machine learning, numerical experiments, and reliable implementation.
+          Software-development first: implementation, algorithms, systems-oriented ML tooling, and domain-specific QEC applications.
         </p>
       </div>
 
       <div class="skills-grid">
-        <article class="skill-card">
-          <h3>Quantum information & QEC</h3>
-          <p>Quantum error correction, decoder benchmarking, syndrome-based diagnostics, quantum tomography, noise modeling, and Qiskit/Aer simulation.</p>
-        </article>
-        <article class="skill-card">
-          <h3>Machine learning & inference</h3>
-          <p>ML-assisted decoding, reinforcement-learning controllers, learned estimators, model comparison, bootstrap validation, ablations, and robustness analysis.</p>
-        </article>
-        <article class="skill-card">
+        <article class="skill-card primary-skill">
           <h3>Software development</h3>
-          <p>Python, C/C++, C++17, Git/GitHub, modular experiment design, reproducible pipelines, logging, plotting, debugging, and clean repository structure.</p>
+          <p>
+            Python, C/C++, C++17, SQL, Git/GitHub, modular architecture, CLI/script workflows,
+            structured logging, debugging, clean repository hygiene, reproducible pipelines,
+            result serialization, plotting/report generation, and reviewable technical documentation.
+          </p>
+        </article>
+        <article class="skill-card primary-skill">
+          <h3>Algorithms & DSA</h3>
+          <p>
+            Arrays, strings, hash maps, binary search, two-pointers, sliding windows, recursion,
+            stacks/queues, heaps, trees, DFS/BFS, graph shortest paths, MST, DSU/Union-Find,
+            greedy methods, dynamic programming, amortized analysis, and performance-aware C++17 implementation.
+          </p>
         </article>
         <article class="skill-card">
-          <h3>Algorithms & systems thinking</h3>
-          <p>Graphs, shortest paths, dynamic programming, heaps, stacks, binary search, Union-Find, MST algorithms, and performance-aware implementation.</p>
+          <h3>ML/RL systems</h3>
+          <p>
+            Supervised models, neural decoders, routing policies, reinforcement-learning controllers,
+            ablation studies, bootstrap confidence intervals, metric design, seed control, baseline comparisons,
+            and robust numerical evaluation loops.
+          </p>
+        </article>
+        <article class="skill-card domain-skill">
+          <h3>Quantum software & QEC</h3>
+          <p>
+            Quantum error correction, syndrome-based decoder benchmarking, MWPM-like / Union-Find / MLD / neural decoder comparisons,
+            noise-regime simulation, Qiskit/Aer-style workflows, tomography, robust inference, and model-mismatch experiments.
+          </p>
         </article>
       </div>
     </section>
 
-    <section class="section contact-section" id="contact">
-      <div class="container contact-grid">
-        <div>
-          <p class="eyebrow">Contact</p>
-          <h2>Research, quantum, and software opportunities.</h2>
-          <p>
-            I am interested in research internships, quantum information and QEC projects, ML-assisted decoder diagnostics, robust inference, and software-development roles with strong technical depth.
-          </p>
-        </div>
-        <div class="contact-card">
-          <a href="mailto:your.email@example.com">your.email@example.com</a>
-          <a href="https://github.com/arham-khd">GitHub</a>
-          <a href="https://www.linkedin.com/in/YOUR-LINKEDIN/">LinkedIn</a>
-          <a href="assets/Arham_K_CV.pdf">CV / Resume</a>
-        </div>
+    <section id="contact" class="shell section contact-section">
+      <div class="contact-copy-wrap">
+        <p class="eyebrow">Contact</p>
+        <h2>Software engineering and ML systems opportunities.</h2>
+        <p class="contact-copy">
+          Interested in SDE internships, ML engineering work, systems-oriented research software,
+          and technically deep quantum-computing projects.
+        </p>
+      </div>
+      <div class="contact-card" aria-label="Contact links">
+        <a href="mailto:arham605k@gmail.com">arham605k@gmail.com</a>
+        <a href="https://github.com/arham-khd" target="_blank" rel="noreferrer">github.com/arham-khd</a>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer-inner">
-      <span>© <span id="year"></span> Arham K</span>
-      <a href="#top">Back to top ↑</a>
-    </div>
+  <footer class="footer shell">
+    <p>© <span id="year"></span> Arham K</p>
   </footer>
 
   <script src="script.js"></script>
