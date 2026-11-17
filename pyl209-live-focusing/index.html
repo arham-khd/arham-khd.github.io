@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Browser-only LP-mode and cVAE phase-focusing simulation for PYL 209 Assignment 7B">
+  <title>PYL 209 Live Phase Focusing</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js"></script>
+  <script src="https://pyl209-live-focusing.bersarkvapor.chatgpt.site/model-data.js"></script>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <p class="eyebrow">PYL 209 · Assignment 7B</p>
+      <h1>Live generative phase focusing</h1>
+      <p class="subtitle">Choose the wavelength, propagation length and focal target. The trained cVAE and the complete optical calculation run directly in this browser.</p>
+      <div class="badges"><span>Nothing to install</span><span>65-mode reference basis</span><span>16 × 16 phase mask</span><span>24-dimensional latent space</span></div>
+    </div>
+  </header>
+
+  <main class="wrap layout">
+    <section class="panel controls">
+      <div class="model-state"><span id="stateDot"></span><strong id="modelState">Loading trained decoder…</strong></div>
+      <h2>Run parameters</h2>
+      <form id="runForm">
+        <label>Fibre length <output id="lengthValue">1.000 m</output>
+          <input id="fibreLength" type="range" min="0.82" max="1.18" step="0.001" value="1">
+        </label>
+        <div class="range-labels"><span>0.82 m</span><span>trained range</span><span>1.18 m</span></div>
+
+        <label>Wavelength <output id="wavelengthValue">600 nm</output>
+          <input id="wavelength" type="range" min="550" max="650" step="1" value="600">
+        </label>
+        <div class="range-labels"><span>550 nm</span><span>optical sweep</span><span>650 nm</span></div>
+
+        <div class="two">
+          <label>Target x
+            <input id="targetX" type="number" min="-5" max="5" step="1" value="0">
+          </label>
+          <label>Target y
+            <input id="targetY" type="number" min="-5" max="5" step="1" value="0">
+          </label>
+        </div>
+
+        <label>Search quality
+          <select id="quality">
+            <option value="quick">Quick · 32 candidates</option>
+            <option value="balanced" selected>Balanced · 64 candidates × 8 rounds</option>
+            <option value="submitted">Submitted quality · 96 candidates × 20 rounds</option>
+          </select>
+        </label>
+
+        <label>Random seed
+          <input id="seed" type="number" min="0" max="999999" step="1" value="209">
+        </label>
+
+        <button id="runButton" type="submit" disabled>Generate focus</button>
+        <button id="presetButton" class="secondary" type="button" disabled>Run submitted case</button>
+      </form>
+      <p class="hint">The network was trained once at 600 nm. Wavelength sweeps recalculate the launch coefficients and modal propagation constants, testing zero-shot transfer of the field-conditioned decoder.</p>
+    </section>
+
+    <section class="panel results">
+      <div class="result-head">
+        <div><h2>Focusing result</h2><p id="status">Preparing the browser model.</p></div>
+        <div class="actions"><button id="downloadMask" disabled>Phase mask CSV</button><button id="downloadResult" disabled>Result JSON</button></div>
+      </div>
+      <div class="progress" aria-label="Calculation progress"><div id="progressBar"></div></div>
+
+      <div id="scoreCards" class="score-cards empty">
+        <div><strong>—</strong><span>Direct cVAE PBR</span></div>
+        <div><strong>—</strong><span>Refined PBR</span></div>
+        <div><strong>—</strong><span>Phase-conjugate bound</span></div>
+      </div>
+
+      <div class="primary-visuals">
+        <figure><canvas id="maskCanvas" width="320" height="320" aria-label="Generated phase mask"></canvas><figcaption>Generated phase mask, −π to π</figcaption></figure>
+        <figure><canvas id="focusCanvas" width="320" height="320" aria-label="Refined focal intensity"></canvas><figcaption>Refined focal intensity, logarithmic scale</figcaption></figure>
+        <figure><canvas id="traceCanvas" width="520" height="320" aria-label="PBR refinement trace"></canvas><figcaption>Best PBR during latent refinement</figcaption></figure>
+      </div>
+
+      <h3>Method comparison</h3>
+      <div class="comparisons">
+        <figure><canvas data-image="uncorrected" width="180" height="180"></canvas><figcaption>Uncorrected</figcaption></figure>
+        <figure><canvas data-image="random" width="180" height="180"></canvas><figcaption>Random search</figcaption></figure>
+        <figure><canvas data-image="direct" width="180" height="180"></canvas><figcaption>Direct cVAE</figcaption></figure>
+        <figure><canvas data-image="refined" width="180" height="180"></canvas><figcaption>Refined cVAE</figcaption></figure>
+        <figure><canvas data-image="bound" width="180" height="180"></canvas><figcaption>Phase-conjugate bound</figcaption></figure>
+      </div>
+
+      <div class="table-wrap"><table><thead><tr><th>Method</th><th>PBR</th></tr></thead><tbody id="scoreTable"><tr><td colspan="2">Run the model to populate this table.</td></tr></tbody></table></div>
+    </section>
+  </main>
+
+  <section class="wrap note"><strong>Validity domain.</strong> Fibre length and target position remain inside the training distribution. The 550–650 nm control uses the fixed 65-mode reference profiles with wavelength-dependent launch phase, guided-mode cutoff and propagation constants. Material dispersion is neglected. The page does not upload parameters or results.</section>
+  <footer>Weak-guidance LP-mode simulation · conditional variational autoencoder · latent-space refinement</footer>
+  <script src="app.js"></script>
+</body>
+</html>
